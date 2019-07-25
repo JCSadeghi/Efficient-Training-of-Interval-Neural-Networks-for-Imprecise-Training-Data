@@ -2,7 +2,7 @@
 
 This repository contains example code for the publication: 
 
-[Efficient Training of Interval Neural Networks for Imprecise Training Data](https://jcsadeghi.github.io/assets/papers/neunet.pdf). [Sadeghi, Jonathan](JCSadeghi.github.io), [de Angelis, Marco](https://www.liverpool.ac.uk/risk-and-uncertainty/staff/marcodeangelis/), and [Patelli, Edoardo](https://www.liverpool.ac.uk/engineering/staff/edoardo-patelli/). *Neural Networks*. 2019 DOI HERE
+[Efficient Training of Interval Neural Networks for Imprecise Training Data](https://doi.org/10.1016/j.neunet.2019.07.005). [Sadeghi, Jonathan](JCSadeghi.github.io), [de Angelis, Marco](https://www.liverpool.ac.uk/risk-and-uncertainty/staff/marcodeangelis/), and [Patelli, Edoardo](https://www.liverpool.ac.uk/engineering/staff/edoardo-patelli/). *Neural Networks*. 2019. doi: 10.1016/j.neunet.2019.07.005
 
 Experiments from Section 5.2 and 5.3 are included. This includes one example of creating an Interval Neural Network with multiple outputs and one heteroscedastic example with interval valued data.
 
