@@ -1,0 +1,12 @@
+{
+  "exp_name": "example",
+  "num_epochs": 6000,
+  "learning_rate_init": 0.1,
+  "learning_rate_decay": 0.96,
+  "batch_size": 200,
+  "decay_steps": 100,
+  "max_to_keep": 5,
+  "n_samples": 1250,
+  "loss": "max",
+  "beta": 0.001
+}

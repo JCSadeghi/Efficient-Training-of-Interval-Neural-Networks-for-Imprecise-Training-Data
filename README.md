@@ -1,8 +1,23 @@
-# Tensorflow Project Template
-A simple and well designed structure is essential for any Deep Learning project, so after a lot of practice and contributing in tensorflow projects here's a tensorflow project template that combines   **simplcity**, **best practice for folder structure** and **good OOP design**.
-The main idea is that there's much stuff you do every time you start your tensorflow project, so wrapping all this shared stuff will help you to change just the core idea every time you start a new tensorflow project.
+# Efficient Training of Interval Neural Networks for Imprecise Training Data Experiments
 
-**So, here's a simple tensorflow template that help you get into your main project faster and just focus on your core (Model, Training, ...etc)**
+This repository contains example code for the publication: 
+
+[Efficient Training of Interval Neural Networks for Imprecise Training Data](https://jcsadeghi.github.io/assets/papers/neunet.pdf). [Sadeghi, Jonathan](JCSadeghi.github.io), [de Angelis, Marco](https://www.liverpool.ac.uk/risk-and-uncertainty/staff/marcodeangelis/), and [Patelli, Edoardo](https://www.liverpool.ac.uk/engineering/staff/edoardo-patelli/). *Neural Networks*. 2019 DOI HERE
+
+Experiments from Section 5.2 and 5.3 are included. This includes one example of creating an Interval Neural Network with multiple outputs and one heteroscedastic example with interval valued data.
+
+Each experiment is contained in a separate python run script, for example you can run the imprecise dataset experiment like this:
+
+```python3 sec5_2_uncertain_train_data_2.py```
+
+Before running the code ensure that you install the modules with pip3 from requirements.txt
+
+If any aspect of the code is unclear, please feel free to get in touch.
+
+The code structure is based on [TensorFlow project template](https://github.com/MrGemy95/Tensorflow-Project-Template/)
+
+A description of the code structure is given below:
+
 # Table Of Contents
 
 -  [In a Nutshell](#in-a-nutshell)
@@ -32,9 +47,9 @@ In a nutshell here's how to use this template, so **for example** assume you wan
             #call the build_model and init_saver functions.
             self.build_model() 
             self.init_saver() 
-  ```
+```
 - Override these two functions "build_model" where you implement the vgg model, and "init_saver" where you define a tensorflow saver, then call them in the initalizer.
-    
+  
 ```python
      def build_model(self):
         # here you build the tensorflow graph of any model you want and also define the loss.
@@ -44,8 +59,8 @@ In a nutshell here's how to use this template, so **for example** assume you wan
         # here you initalize the tensorflow saver that will be used in saving the checkpoints.
         self.saver = tf.train.Saver(max_to_keep=self.config.max_to_keep)
 
-  ```
-   
+```
+
 - In trainers folder create a VGG trainer that inherit from "base_train" class
 ```python
 
@@ -141,7 +156,7 @@ Folder structure
 ### Models
 --------------
 - #### **Base model**
-    
+  
     Base model is an abstract class that must be Inherited by any model you create, the idea behind this is that there's much shared stuff between all models.
     The base model contains:
     - ***Save*** -This function to save a checkpoint to the desk. 
@@ -172,32 +187,6 @@ This class is responsible for all data handling and processing and provide an ea
 This class is responsible for the tensorboard summary, in your trainer create a dictionary of all tensorflow variables you want to summarize then pass this dictionary to logger.summarize().
 
 
-This class also supports reporting to **Comet.ml** which allows you to see all your hyper-params, metrics, graphs, dependencies and more including real-time metric.
-Add your API key [in the configuration file](configs/example.json#L9):
-
-For example: "comet_api_key": "your key here"
-
-
-### Comet.ml Integration
-This template also supports reporting to Comet.ml which allows you to see all your hyper-params, metrics, graphs, dependencies and more including real-time metric. 
-
-Add your API key [in the configuration file](configs/example.json#L9):
-
-
-For example:  `"comet_api_key": "your key here"` 
-
-Here's how it looks after you start training:
-<div align="center">
-
-<img align="center" width="800" src="https://comet-ml.nyc3.digitaloceanspaces.com/CometDemo.gif">
-
-</div>
-
-You can also link your Github repository to your comet.ml project for full version control. 
-[Here's a live page showing the example from this repo](https://www.comet.ml/gidim/tensorflow-project-template/caba580d8d1547ccaed982693a645507/chart)
-
-
-
 ### Configuration
 I use Json as configuration method and then parse it, so write all configs you want then parse it using "utils/config/process_config" and pass this configuration object to all other objects.
 ### Main
@@ -207,17 +196,3 @@ Here's where you combine all previous part.
 2. Create an instance of "Model", "Data_Generator" and "Logger" and parse the config to all of them.
 3. Create an instance of "Trainer" and pass all previous objects to it.
 4. Now you can train your model by calling "Trainer.train()"
-
-
-# Future Work
-- Replace the data loader part with new tensorflow dataset API.
-
-
-# Contributing
-Any kind of enhancement or contribution is welcomed.
-
-
-# Acknowledgments
-Thanks for my colleague  [Mo'men Abdelrazek](https://github.com/moemen95) for contributing in this work.
-and thanks for [Mohamed Zahran](https://github.com/moh3th1) for the review.
-**Thanks for Jtoy for including the repo in  [Awesome Tensorflow](https://github.com/jtoy/awesome-tensorflow).** 
